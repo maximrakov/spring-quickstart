@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<form action="#" th:action="@{/social}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <td><label th:text="name" /></td>
+            <td><input type="text" th:field="*{name}" /></td>
+            <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+        </tr>
+        <tr>
+            <td><label th:text="age" /></td>
+            <td><input type="text" th:field="*{age}" /></td>
+            <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">age Error</div>
+        </tr>
+        <tr>
+            <td><label th:text="email" /></td>
+            <td><input type="text" th:field="*{email}" /></td>
+            <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</div>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
