@@ -3,11 +3,11 @@ package spring_prac.dao;
 import org.springframework.stereotype.Component;
 import spring_prac.models.User;
 
+import java.util.ArrayList;
 import java.util.List;
 @Component
 public class PersonService {
-    List<User>users = List.of(new User("max",18, "max@mail.ru"),
-                              new User("ivan",20, "ivan@mail.ru"));
+    List<User>users = new ArrayList<>();
 
     public List<User> getAll(){
         return users;
