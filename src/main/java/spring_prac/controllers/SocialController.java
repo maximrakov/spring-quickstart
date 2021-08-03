@@ -39,4 +39,11 @@ public class SocialController {
         personService.save(user);
         return "redirect:/social/index";
     }
+
+    @GetMapping("/user/{id}")
+    public String userInfoPage(Model model, @PathVariable String id){
+//        model.addAttribute("id", id);
+        model.addAttribute("user", personService.getUser(Integer.parseInt(id)));
+        return "social/userInfo";
+    }
 }

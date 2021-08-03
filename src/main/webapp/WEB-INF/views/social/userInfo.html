@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <p>Name: <span th:text="${user.getName()}"></span></p>
+
+    <p>Age: <span th:text="${user.getAge()}"></span></p>
+
+    <p>Email: <span th:text="${user.getEmail()}"></span></p>
+
+    <form action="/social/index ">
+        <input type="submit" value="Back" />
+    </form>
+</body>
+</html>

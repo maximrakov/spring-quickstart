@@ -9,5 +9,9 @@
         <a th:href="@{/social/user/{id}(id=${user.getId()})}"
            th:text="${user.getName()}">user</a>
     </div>
+
+    <form action="/social/new">
+        <input type="submit" value="Register" />
+    </form>
 </body>
 </html>
