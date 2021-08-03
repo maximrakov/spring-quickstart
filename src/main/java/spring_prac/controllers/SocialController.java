@@ -1,17 +1,14 @@
 package spring_prac.controllers;
 
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import spring_prac.dao.PersonService;
 import spring_prac.models.User;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/social")
@@ -22,6 +19,7 @@ public class SocialController {
     public SocialController(PersonService personService){
         this.personService = personService;
     }
+
     @GetMapping("/index")
     public String indexPage(Model model) {
         model.addAttribute("users", personService.getAll());
@@ -34,8 +32,7 @@ public class SocialController {
     }
 
     @PostMapping("")
-    public String savePage(@ModelAttribute("user") @Valid User user,
-                           BindingResult bindingResult){
+    public String savePage(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){
             return "social/register";
         }
